@@ -16,10 +16,38 @@ log "Working in: $WD"
 cd $WD
 
 log "Install dependencies"
-brew install --quiet freeglut mesa harfbuzz
+for dependency in freeglut mesa harfbuzz; do
+  if [ ! -d "$(brew --prefix)/opt/$dependency" ]; then
+    brew install --quiet "$dependency"
+  fi
+done
 
 log "Cloning source code"
 git clone --quiet -b development --recurse-submodules -j8 https://github.com/ahrm/sioyek.git .
+
+log "Fixing live status bar theme refresh"
+python3 - <<'PY'
+from pathlib import Path
+
+path = Path('pdf_viewer/main_widget.cpp')
+source = path.read_text()
+anchor = 'void MainWidget::on_config_file_changed(ConfigManager* new_config) {'
+assert source.count(anchor) == 1, 'Upstream config reload handler changed; review patch'
+start = source.index(anchor)
+end = source.index('\n}', start)
+handler = source[start:end]
+for label in ('status_label_left', 'status_label_right'):
+    statement = f'{label}->setStyleSheet(get_status_stylesheet());'
+    if statement not in handler:
+        handler += '\n    ' + statement
+source = source[:start] + handler + source[end:]
+anchor = 'void MainWidget::on_configs_changed(std::vector<std::string>* config_names) {'
+assert source.count(anchor) == 1, 'Upstream config notification handler changed; review patch'
+call = '\n    on_config_file_changed(config_manager);'
+if anchor + call not in source:
+    source = source.replace(anchor, anchor + call, 1)
+path.write_text(source)
+PY
 
 # Qt 6.8.1's macOS binaries are built with macOS 14 as their deployment
 # target. The deployment target is the oldest supported macOS release, not
@@ -63,15 +91,27 @@ THREADS=$(sysctl -n hw.ncpu)
 log "Starting the building process with $THREADS parallel threads"
 env MAKE_PARALLEL=$THREADS ./build_mac.sh
 
-log "Extracting build artifact into /tmp/sioyek.app"
-mv build/sioyek.app /tmp/sioyek.app
 log "Verifying app package signature"
-codesign --verify --deep --strict /tmp/sioyek.app
+codesign --verify --deep --strict build/sioyek.app
+
+INSTALL_DIR=/Applications
+BIN_DIR=/opt/homebrew/bin
+if [ ! -w "$INSTALL_DIR" ]; then
+  INSTALL_DIR="$HOME/Applications"
+fi
+if [ ! -w "$BIN_DIR" ]; then
+  BIN_DIR="$HOME/.local/bin"
+fi
+mkdir -p "$INSTALL_DIR" "$BIN_DIR"
+if [ -e "$INSTALL_DIR/sioyek.app" ]; then
+  BACKUP="$INSTALL_DIR/sioyek-backup-$(date +%Y%m%d-%H%M%S).app"
+  log "Preserving installed app at $BACKUP"
+  mv "$INSTALL_DIR/sioyek.app" "$BACKUP"
+fi
+log "Moving app to $INSTALL_DIR"
+mv build/sioyek.app "$INSTALL_DIR/sioyek.app"
+ln -sf "$INSTALL_DIR/sioyek.app/Contents/MacOS/sioyek" "$BIN_DIR/sioyek"
 
 log "Remove all source code and intermediary objects"
 cd /tmp
 rm -rf "$WD"
-
-log "Moving app to /Applications"
-mv /tmp/sioyek.app /Applications/
-ln -sf /Applications/sioyek.app/Contents/MacOS/sioyek /opt/homebrew/bin/sioyek
