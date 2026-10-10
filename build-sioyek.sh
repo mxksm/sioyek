@@ -47,6 +47,15 @@ call = '\n    on_config_file_changed(config_manager);'
 if anchor + call not in source:
     source = source.replace(anchor, anchor + call, 1)
 path.write_text(source)
+
+# Undo must choose the newest stroke across pages, including subsecond changes.
+path = Path('pdf_viewer/document.cpp')
+source = path.read_text()
+old = 'drawings[drawings.size() - 1].creattion_time.secsTo(most_recent_page_time) > 0'
+new = 'drawings.back().creattion_time > most_recent_page_time'
+assert source.count(old) == 1 or new in source, 'Upstream drawing undo changed; review patch'
+source = source.replace(old, new, 1)
+path.write_text(source)
 PY
 
 # Qt 6.8.1's macOS binaries are built with macOS 14 as their deployment
