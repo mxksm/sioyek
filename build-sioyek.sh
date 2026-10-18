@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 cd ~/
 
 set -e
@@ -23,7 +24,7 @@ for dependency in freeglut mesa harfbuzz; do
 done
 
 log "Cloning source code"
-git clone --quiet -b development --recurse-submodules -j8 https://github.com/ahrm/sioyek.git .
+git clone --quiet --depth 1 -b development --recurse-submodules --shallow-submodules -j8 https://github.com/ahrm/sioyek.git .
 
 log "Fixing live status bar theme refresh"
 python3 - <<'PY'
@@ -57,6 +58,9 @@ assert source.count(old) == 1 or new in source, 'Upstream drawing undo changed; 
 source = source.replace(old, new, 1)
 path.write_text(source)
 PY
+
+log "Adding drawing redo"
+python3 "$SCRIPT_DIR/patches/add-drawing-redo.py" "$WD"
 
 # Qt 6.8.1's macOS binaries are built with macOS 14 as their deployment
 # target. The deployment target is the oldest supported macOS release, not
