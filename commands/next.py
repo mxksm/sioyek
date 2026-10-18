@@ -12,8 +12,8 @@ def get_next_file():
         return
 
     # Extract directory and filename
-    dir_path = os.path.dirname(current_file)[1:]
-    file_name = os.path.basename(current_file)[:-1]
+    dir_path = os.path.dirname(current_file)
+    file_name = os.path.basename(current_file)
 #    print(f"Directory: {dir_path}")
 #    print(f"File name: {file_name}")
 

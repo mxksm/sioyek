@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Define the config directory
-SIOYEK_DIR="$CONFIG_DIR/sioyek"
+# Locate themes beside this script, including when launched from Finder.
+SIOYEK_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 THEMES_DIR="$SIOYEK_DIR/themes"
 PREFS_FILE="$SIOYEK_DIR/prefs_user.config"
 
