@@ -12,11 +12,19 @@ if [[ ! "$SOURCE_REVISION" =~ ^[0-9a-f]{40}$ ]]; then
 fi
 mkdir -p "$CACHE_DIR"
 if [ ! -e "$SOURCE_DIR" ]; then
-    git clone --no-checkout "$SOURCE_REPO" "$SOURCE_DIR"
+    git clone "$SOURCE_REPO" "$SOURCE_DIR"
 fi
 if [ "$(git -C "$SOURCE_DIR" remote get-url origin)" != "$SOURCE_REPO" ]; then
     echo "Unexpected repository at $SOURCE_DIR; refusing to change it." >&2
     exit 1
+fi
+# Recover the empty cache left by older launchers using clone --no-checkout.
+# Only restore when both the index and working directory are empty; otherwise
+# preserve all files and let the normal local-change checks handle the checkout.
+if [ -z "$(git -C "$SOURCE_DIR" ls-files)" ] &&
+   [ -z "$(find "$SOURCE_DIR" -mindepth 1 -maxdepth 1 ! -name .git -print -quit)" ]; then
+    echo "Initializing empty source checkout"
+    git -C "$SOURCE_DIR" restore --source=HEAD --staged --worktree -- .
 fi
 if ! git -C "$SOURCE_DIR" diff --quiet --ignore-submodules=all ||
    ! git -C "$SOURCE_DIR" diff --cached --quiet --ignore-submodules=all; then
