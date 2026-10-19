@@ -53,7 +53,7 @@ Source development and upstream merge instructions are in the fork's
 ## Annotation shortcuts
 
 - `p`: toggle freehand drawing.
-- Shift+E: toggle circular eraser (removes whole strokes); Escape exits.
+- Shift+E: toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
 - Cmd+Z / Ctrl+Z: undo drawing; Cmd+Shift+Z: redo drawing. Erasing is not undoable.
 - Shift+A: create a text box; `w`, then `a`: delete a visible annotation.
