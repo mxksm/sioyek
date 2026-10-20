@@ -52,9 +52,12 @@ Source development and upstream merge instructions are in the fork's
 
 ## Annotation shortcuts
 
-- `p`: toggle freehand drawing; the filled cursor shows the current pen color.
+- `p` or `x`: toggle freehand drawing; the filled cursor shows the current pen color.
 - Shift+E: toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
+- Shift+C: toggle a glowing red laser trail. Hold the left mouse button to draw;
+  release to fade from the beginning over about 1½ seconds. Escape clears it.
+  Laser marks are temporary and never saved.
 - Cmd+Z / Ctrl+Z: undo drawing; Cmd+Shift+Z: redo drawing. Erasing is not undoable.
 - Shift+A: create a text box; `w`, then `a`: delete a visible annotation.
 
