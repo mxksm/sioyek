@@ -52,10 +52,23 @@ Source development and upstream merge instructions are in the fork's
 
 ## Annotation shortcuts
 
-- `p`: toggle freehand drawing.
+- `p`: toggle freehand drawing; the filled cursor shows the current pen color.
 - Shift+E: toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
 - Cmd+Z / Ctrl+Z: undo drawing; Cmd+Shift+Z: redo drawing. Erasing is not undoable.
 - Shift+A: create a text box; `w`, then `a`: delete a visible annotation.
+
+## Tabs and split view
+
+- Cmd+T: open a PDF in a tab; Cmd+W: close the current tab.
+- Cmd+1–9: select a tab in the focused pane.
+- Cmd+Backslash: toggle two PDF panes sharing the same tabs.
+- Ctrl+H / Ctrl+L: focus the left / right pane; Cmd+Option+W switches sides.
+- Drag the divider to resize the panes. The top line marks the focused pane;
+  both lines follow the theme. Each pane keeps its own position and zoom.
+- Ctrl+T: open a separate window; Ctrl+W: close the entire window.
+
+Collapsing a split keeps the focused PDF. Tabs are restored at startup, but the
+split layout starts with one pane.
 
 Custom script paths use `$CONFIG_DIR`, falling back to `$HOME/.config`.
