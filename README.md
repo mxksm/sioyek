@@ -39,31 +39,6 @@ printed path explicitly if both locations contain an installation.
 Source development and upstream merge instructions are in the fork's
 [FORK.md](https://github.com/mxksm/sioyek-app/blob/development/FORK.md).
 
-## Updating
-
-From this configuration repository:
-
-```sh
-git pull --ff-only
-bash build-sioyek.sh
-```
-
-Quit and reopen the installed app after building.
-
-If Git refuses to pull because you edited `prefs_user.config`, stash that file
-first, pull, then restore the stash. Only pop a stash if the first command reports
-that it saved changes:
-
-```sh
-git stash push -m local-preferences -- prefs_user.config
-git pull --ff-only
-git stash pop
-```
-
-If restoring the stash reports a conflict, resolve it before building: keep your
-chosen theme and machine preferences, and retain the updated portable commands.
-The build itself does not modify your user config.
-
 ## Annotation shortcuts
 
 - `p` or `x`: toggle freehand drawing; the filled cursor shows the current pen color.
