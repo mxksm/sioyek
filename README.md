@@ -64,6 +64,8 @@ larger values fade slower. Changes apply to the next released stroke.
 
 - Cmd+T: open a PDF in a tab; Cmd+W: close the current tab.
 - Cmd+1–9: select a tab in the focused pane.
+- Shift+, (`<`) / Shift+. (`>`): move the focused PDF's tab one place left / right.
+  Tabs stop at either end without wrapping; both split panes keep their views.
 - Ctrl+Tab: cycle through tabs in most-recently-used order. Keep Ctrl held to
   display the switcher; release Ctrl to open the selection. Shift reverses direction.
 - Cmd+Backslash: toggle two PDF panes sharing the same tabs.
