@@ -60,6 +60,21 @@ laser_pointer_duration_ms 1450
 Values are milliseconds, from 100 to 60000. Smaller values fade faster;
 larger values fade slower. Changes apply to the next released stroke.
 
+## Finding documents
+
+- Shift+O: search recent documents in a floating panel.
+- Ctrl+Shift+O: browse and search the current PDF's folder in the same style.
+- Search by filename, PDF metadata title, or text on the first page. Words can be
+  entered in any order; capitalization and accents do not matter. Small typos are
+  tolerated with `fuzzy_searching 1` in `prefs_user.config`.
+- Use the arrow keys and Enter to choose a result; Escape returns to the PDF.
+  The selected file opens in the pane that launched the picker.
+- In the folder picker, Enter opens a folder. Backspace in an empty search field,
+  or Option+Up, goes to its parent. Pasting a file or folder path also works.
+
+Titles are indexed locally in the background and cached for the running session.
+Image-only scans need searchable text or title metadata to match by title.
+
 ## Tabs and split view
 
 - Cmd+T: open a PDF in a tab; Cmd+W: close the current tab.
