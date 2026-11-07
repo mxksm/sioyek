@@ -75,7 +75,7 @@ larger values fade slower. Changes apply to the next released stroke.
 - Search by filename, PDF metadata title, or text on the first page. Words can be
   entered in any order; capitalization and accents do not matter. Small typos are
   tolerated with `fuzzy_searching 1` in `prefs_user.config`.
-- Use the arrow keys and Enter to choose a result; Escape returns to the PDF.
+- Use the arrow keys and Enter to choose a result.
   The selected file opens in the pane that launched the picker.
 - Long lists expand to the available window height. Scroll to see further results;
   arrow keys stay within the picker at either end of the list.
@@ -86,6 +86,16 @@ larger values fade slower. Changes apply to the next released stroke.
 
 Titles are indexed locally in the background and cached for the running session.
 Image-only scans need searchable text or title metadata to match by title.
+
+Both pickers start in **insert mode**. Press Escape for **normal mode**, then
+Escape again to close; Ctrl+C closes immediately. The heading shows the mode.
+In normal mode, `j` / `k` navigate results and `i` / `a` resume typing. Use
+`h` / `l`, `w` / `b` / `e`, and `0` / `$` to move through the query; `v` starts
+visual selection and `x` deletes it. `yy` copies the whole query to the system
+clipboard, `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`, and
+`cw` delete or change text. Escape leaves visual mode before closing the picker.
+See the [full editing shortcuts](https://github.com/mxksm/sioyek-app#vim-style-search-editing)
+for the supported motions and commands.
 
 ## Tabs and split view
 
