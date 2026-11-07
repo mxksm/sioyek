@@ -87,8 +87,9 @@ larger values fade slower. Changes apply to the next released stroke.
 Titles are indexed locally in the background and cached for the running session.
 Image-only scans need searchable text or title metadata to match by title.
 
-Both pickers start in **insert mode**. Press Escape for **normal mode**, then
-Escape again to close; Ctrl+C closes immediately. The heading shows the mode.
+Both pickers start in **normal mode**. Press `i` to type a search, then Escape to
+return to normal mode. Escape in normal mode closes the picker; Ctrl+C closes
+immediately. The heading shows the mode.
 In normal mode, `j` / `k` navigate results and `i` / `a` resume typing. Use
 `h` / `l`, `w` / `b` / `e`, and `0` / `$` to move through the query; `v` starts
 visual selection and `x` deletes it. `yy` copies the selected file or folder's full
