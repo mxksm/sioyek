@@ -91,8 +91,9 @@ Both pickers start in **insert mode**. Press Escape for **normal mode**, then
 Escape again to close; Ctrl+C closes immediately. The heading shows the mode.
 In normal mode, `j` / `k` navigate results and `i` / `a` resume typing. Use
 `h` / `l`, `w` / `b` / `e`, and `0` / `$` to move through the query; `v` starts
-visual selection and `x` deletes it. `yy` copies the whole query to the system
-clipboard, `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`, and
+visual selection and `x` deletes it. `yy` copies the selected file or folder's full
+path to the system clipboard; visual-mode `y` copies search text (`Vy` copies the
+whole query). `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`, and
 `cw` delete or change text. Escape leaves visual mode before closing the picker.
 See the [full editing shortcuts](https://github.com/mxksm/sioyek-app#vim-style-search-editing)
 for the supported motions and commands.
