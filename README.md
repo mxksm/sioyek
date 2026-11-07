@@ -92,8 +92,16 @@ Library search uses this setting in `prefs_user.config`:
 pdf_library_path ~/Documents
 ```
 
-Change it to `~/Documents/books`, an absolute folder path (spaces need no quotes),
-or `~` for your entire home folder. Reopen the picker after changing it. Library
+Use semicolons for multiple folders, for example:
+
+```conf
+pdf_library_path ~/Documents; ~/Downloads; ~/Books
+```
+
+Results combine every folder and its subfolders; overlapping files appear only
+once. An unavailable folder does not block the others. Spaces need no quotes;
+semicolons are separators. `~` means your home folder. Reopen the picker after
+changing the setting. Library
 results show their containing folders; folder names are searchable too. Scans run
 in the background, use a session cache, and refresh on opening and every 30
 seconds while the picker is visible. Hidden folders and symlinks are skipped.
