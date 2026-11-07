@@ -70,8 +70,10 @@ larger values fade slower. Changes apply to the next released stroke.
 
 ## Finding documents
 
-- Shift+O: search recent documents in a floating panel.
+- Cmd+Shift+O: search recent documents in a floating panel.
 - Ctrl+Shift+O: browse and search the current PDF's folder in the same style.
+- Shift+O: search all PDFs recursively in the configured library folder,
+  including files never opened before.
 - Search by filename, PDF metadata title, or text on the first page. Words can be
   entered in any order; capitalization and accents do not matter. Small typos are
   tolerated with `fuzzy_searching 1` in `prefs_user.config`.
@@ -84,10 +86,23 @@ larger values fade slower. Changes apply to the next released stroke.
 - In the folder picker, Enter opens a folder. Backspace in an empty search field,
   or Option+Up, goes to its parent. Pasting a file or folder path also works.
 
+Library search uses this setting in `prefs_user.config`:
+
+```conf
+pdf_library_path ~/Documents
+```
+
+Change it to `~/Documents/books`, an absolute folder path (spaces need no quotes),
+or `~` for your entire home folder. Reopen the picker after changing it. Library
+results show their containing folders; folder names are searchable too. Scans run
+in the background, use a session cache, and refresh on opening and every 30
+seconds while the picker is visible. Hidden folders and symlinks are skipped.
+Scanning leaves recents untouched; Enter opens the selected PDF.
+
 Titles are indexed locally in the background and cached for the running session.
 Image-only scans need searchable text or title metadata to match by title.
 
-Both pickers start in **normal mode**. Press `i` to type a search, then Escape to
+All document pickers start in **normal mode**. Press `i` to type a search, then Escape to
 return to normal mode. Escape in normal mode closes the picker; Ctrl+C closes
 immediately. The heading shows the mode.
 In normal mode, `j` / `k` navigate results, `gg` / `G` select the first / last
