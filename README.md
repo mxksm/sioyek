@@ -3,9 +3,19 @@
 macOS configuration, keyboard shortcuts, themes, and a build launcher for the
 [mxksm/sioyek-app](https://github.com/mxksm/sioyek-app) fork of
 [Sioyek](https://github.com/ahrm/sioyek). The fork adds PDF tabs, split view,
-drawing tools, and a temporary laser pointer.
+drawing tools, a temporary laser pointer, and searchable floating document pickers.
+See the [app README](https://github.com/mxksm/sioyek-app#readme) for the fork's
+features and instructions for building directly from source.
 
-## Features
+## Configuration
+
+- [keys_user.config](keys_user.config): keyboard shortcuts.
+- [prefs_user.config](prefs_user.config): colors, startup commands, pen settings,
+  laser duration, and search preferences.
+- [commands/](commands/): theme switching and file-navigation scripts.
+- [sioyek-app-revision](sioyek-app-revision): the app commit used by the build launcher.
+
+## Themes and file navigation
 
 - **Theme Switching** — Switch themes with Option+1–5, Option+8–9, or Option+0.
 - **File Navigation** — Open the previous PDF with Shift+D or the next with Shift+L, sorted alphanumerically within the current directory.
@@ -36,12 +46,10 @@ Quit Sioyek and reopen the installed app afterward. The build prints its path:
 is not writable. It keeps a backup of the previously installed app. Open the
 printed path explicitly if both locations contain an installation.
 
-Source development and upstream merge instructions are in the fork's
-[FORK.md](https://github.com/mxksm/sioyek-app/blob/development/FORK.md).
-
 ## Annotation shortcuts
 
 - `p` or `x`: toggle freehand drawing; the filled cursor shows the current pen color.
+- Cmd+R / Cmd+G / Cmd+B: select red / green / blue ink. Option+W changes pen width.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
 - Shift+E: toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
@@ -69,6 +77,10 @@ larger values fade slower. Changes apply to the next released stroke.
   tolerated with `fuzzy_searching 1` in `prefs_user.config`.
 - Use the arrow keys and Enter to choose a result; Escape returns to the PDF.
   The selected file opens in the pane that launched the picker.
+- Long lists expand to the available window height. Scroll to see further results;
+  arrow keys stay within the picker at either end of the list.
+- Cmd+Delete removes the selected entry from recents, including while searching.
+  The search text stays intact, and the PDF remains on disk.
 - In the folder picker, Enter opens a folder. Backspace in an empty search field,
   or Option+Up, goes to its parent. Pasting a file or folder path also works.
 
@@ -83,11 +95,14 @@ Image-only scans need searchable text or title metadata to match by title.
   Tabs stop at either end without wrapping; both split panes keep their views.
 - Ctrl+Tab: cycle through tabs in most-recently-used order. Keep Ctrl held to
   display the switcher; release Ctrl to open the selection. Shift reverses direction.
+  A quick tap switches without showing the panel; the PDF stays unchanged while
+  choosing from the open switcher.
 - Cmd+Backslash: toggle two PDF panes sharing the same tabs.
 - Ctrl+H / Ctrl+L: focus the left / right pane; Cmd+Option+W switches sides.
 - Drag the divider to resize the panes. The top line marks the focused pane;
   both lines follow the theme. Each pane keeps its own position and zoom.
 - Ctrl+T: open a separate window; Ctrl+W: close the entire window.
+- `st` / `sb`: show or hide the tab bar / status bar.
 
 Collapsing a split keeps the focused PDF. Tabs are restored at startup, but the
 split layout starts with one pane.
