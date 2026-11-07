@@ -125,7 +125,7 @@ for the supported motions and commands.
 
 ## Tabs and split view
 
-- Cmd+T: open a PDF in a tab; Cmd+W: close the current tab.
+- Cmd+T: open the persistent blank canvas; Cmd+W: close the current tab (the last tab returns to the canvas).
 - Cmd+1–9: select a tab in the focused pane.
 - Shift+, (`<`) / Shift+. (`>`): move the focused PDF's tab one place left / right.
   Tabs stop at either end without wrapping; both split panes keep their views.
@@ -144,3 +144,17 @@ Collapsing a split keeps the focused PDF. Tabs are restored at startup, but the
 split layout starts with one pane.
 
 Custom script paths use `$CONFIG_DIR`, falling back to `$HOME/.config`.
+
+### Blank canvas
+
+Cmd+T opens one persistent blank PDF, shared across windows and panes. It has no
+number or label in the tab bar and stays out of recents, the library and Ctrl+Tab.
+Repeated Cmd+T reuses it. Closing the last PDF with Cmd+W returns to the canvas;
+Cmd+W on the canvas leaves it open. Use the document pickers to open real PDFs.
+
+Draw with the usual pen and eraser shortcuts. Finished strokes, undo and redo
+are saved automatically. The PDF and its drawing sidecar live in the `canvas`
+folder inside Sioyek's application-data directory (on macOS,
+`~/Library/Application Support/sioyek/canvas/`). Back up the whole folder: the
+strokes are in `blank.pdf.sioyek.drawings`, separate from `blank.pdf`. Rebuilds
+do not replace these files. An existing personal PDF named `blank.pdf` is untouched.
