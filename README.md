@@ -70,9 +70,9 @@ larger values fade slower. Changes apply to the next released stroke.
 
 ## Finding documents
 
-- Cmd+Shift+O: search recent documents in a floating panel.
+- Shift+O: search recent documents in a floating panel.
 - Ctrl+Shift+O: browse and search the current PDF's folder in the same style.
-- Shift+O: search all PDFs recursively in the configured library folder,
+- Cmd+Shift+O: search all PDFs recursively in the configured library folder,
   including files never opened before.
 - Search by filename, PDF metadata title, or text on the first page. Words can be
   entered in any order; capitalization and accents do not matter. Small typos are
