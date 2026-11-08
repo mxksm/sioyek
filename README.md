@@ -51,7 +51,7 @@ printed path explicitly if both locations contain an installation.
 - `p` or `x`: toggle freehand drawing; the filled cursor shows the current pen color.
 - Cmd+R / Cmd+G / Cmd+B: select red / green / blue ink. Option+W changes pen width.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
-- Shift+E: toggle circular eraser (removes only touched portions of strokes); Escape exits.
+- E (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
 - Shift+C: toggle a glowing red laser trail. Hold the left mouse button to draw;
   release to fade from the beginning. Escape clears it.
@@ -127,6 +127,7 @@ for the supported motions and commands.
 
 - Cmd+T: open the persistent blank canvas; Cmd+W: close the current tab (the last tab returns to the canvas).
 - Cmd+1–9: select a tab in the focused pane.
+- Shift+E / Shift+R: select the tab to the left / right, wrapping at either end.
 - Shift+, (`<`) / Shift+. (`>`): move the focused PDF's tab one place left / right.
   Tabs stop at either end without wrapping; both split panes keep their views.
 - Ctrl+Tab: cycle through tabs in most-recently-used order. Keep Ctrl held to
