@@ -126,6 +126,7 @@ for the supported motions and commands.
 ## Tabs and split view
 
 - Cmd+T: open the persistent blank canvas; Cmd+W: close the current tab (the last tab returns to the canvas).
+- Cmd+Shift+T: reopen the last closed tab with its reading position. Repeat to restore earlier closed tabs.
 - Cmd+1–9: select a tab in the focused pane.
 - Shift+E / Shift+R: select the tab to the left / right, wrapping at either end.
 - Option+R / Option+Shift+R: rotate clockwise / counterclockwise.
