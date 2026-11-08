@@ -128,6 +128,7 @@ for the supported motions and commands.
 - Cmd+T: open the persistent blank canvas; Cmd+W: close the current tab (the last tab returns to the canvas).
 - Cmd+1–9: select a tab in the focused pane.
 - Shift+E / Shift+R: select the tab to the left / right, wrapping at either end.
+- Option+R / Option+Shift+R: rotate clockwise / counterclockwise.
 - Shift+, (`<`) / Shift+. (`>`): move the focused PDF's tab one place left / right.
   Tabs stop at either end without wrapping; both split panes keep their views.
 - Ctrl+Tab: cycle through tabs in most-recently-used order. Keep Ctrl held to
