@@ -15,6 +15,22 @@ features and instructions for building directly from source.
 - [commands/](commands/): theme switching and file-navigation scripts.
 - [sioyek-app-revision](sioyek-app-revision): the app commit used by the build launcher.
 
+Keep machine-specific settings in **`prefs_local.config`**, beside
+`prefs_user.config`. It is loaded last and ignored by Git, so pulls do not replace
+it or conflict with changes to the public defaults. The build launcher creates
+an empty file when needed; it never overwrites an existing one.
+
+For example, create/edit `~/.config/sioyek/prefs_local.config` with:
+
+```conf
+pdf_library_path ~/Documents/university
+```
+
+Leave `pdf_library_path ~/Documents` in the tracked `prefs_user.config`. Other
+preferences can go in the local file too. Restart Sioyek after editing the local
+file; no rebuild is needed. For an existing installation, create the local file
+before opening Sioyek with this configuration.
+
 ## Themes and file navigation
 
 - **Theme Switching** — Switch themes with Option+1–5, Option+8–9, or Option+0.
@@ -102,12 +118,13 @@ larger values fade slower. Changes apply to the next released stroke.
 - In the folder picker, Enter opens a folder. Backspace in an empty search field,
   or Option+Up, goes to its parent. Pasting a file or folder path also works.
 
-Library search uses this setting in `prefs_user.config`:
+The public `prefs_user.config` defaults to:
 
 ```conf
 pdf_library_path ~/Documents
 ```
 
+Set a different location in the ignored `prefs_local.config` described above.
 Use semicolons for multiple folders, for example:
 
 ```conf
@@ -143,6 +160,10 @@ whole query). `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`,
 `cw` delete or change text. Escape leaves visual mode before closing the picker.
 See the [full editing shortcuts](https://github.com/mxksm/sioyek-app#vim-style-search-editing)
 for the supported motions and commands.
+
+PDF text search (`/`) opens in insert mode so you can type immediately. Escape
+returns to normal mode for Vim editing; Enter submits from either mode. Document
+pickers and other text prompts keep their normal-mode default.
 
 Regular PDF search highlights all visible matches (`should_highlight_unselected_search 1`
 in `prefs_user.config`), with a separate color for the active match. Library content

@@ -2,6 +2,8 @@
 # Build the tested source revision from our fork; no source patching.
 set -euo pipefail
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+# Ensure the optional local include exists; preserve all existing overrides.
+touch "$SCRIPT_DIR/prefs_local.config"
 SOURCE_REVISION=$(tr -d '[:space:]' < "$SCRIPT_DIR/sioyek-app-revision")
 CACHE_DIR="${SIOYEK_BUILD_CACHE:-$HOME/Library/Caches/sioyek-build}"
 SOURCE_DIR="$CACHE_DIR/source"
