@@ -55,7 +55,11 @@ printed path explicitly if both locations contain an installation.
 - Shift+P: rectangle eraser.
 - Option+V: lasso ink. Draw around strokes, drag inside the selection to move, or
   drag a corner to scale. Escape cancels an active drag or exits the lasso.
-  Moves and scaling support Cmd+Z / Cmd+Shift+Z and are saved automatically.
+  In lasso mode, `y` copies, `d` cuts, and `p` pastes at the center of the pane;
+  the pasted group stays selected for moving/scaling. `x` returns to the pen.
+  Named registers work with `"ay`, `"ad`, and `"ap` (letters a–z), shared across
+  PDFs and windows until the app quits. The ink clipboard uses at most 32 MiB.
+  Moves, scaling, cuts and pastes support Cmd+Z / Cmd+Shift+Z and save automatically.
   The lasso edits ink on unrotated PDFs, including the blank canvas.
 - Shift+C: toggle a glowing red laser trail. Hold the left mouse button to draw;
   release to fade from the beginning. Escape clears it.
@@ -139,6 +143,17 @@ whole query). `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`,
 `cw` delete or change text. Escape leaves visual mode before closing the picker.
 See the [full editing shortcuts](https://github.com/mxksm/sioyek-app#vim-style-search-editing)
 for the supported motions and commands.
+
+Regular PDF search highlights all visible matches (`should_highlight_unselected_search 1`
+in `prefs_user.config`), with a separate color for the active match. Library content
+previews also highlight every occurrence on the previewed page. `n` / Shift+N
+step through matches; when the active match scrolls offscreen, the visible match
+nearest the center becomes active. On a page with no visible matches, stepping
+resumes from your current position.
+
+`render_cache_size_mb 256` limits retained page images across windows. Visible
+images stay protected; this is not a cap on total Sioyek memory. It allows unused
+large images from fullscreen/zooming to be released after a short grace period.
 
 ## Tabs and split view
 
