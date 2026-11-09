@@ -197,7 +197,11 @@ large images from fullscreen/zooming to be released after a short grace period.
   display the switcher; release Ctrl to open the selection. Shift reverses direction.
   A quick tap switches without showing the panel; the PDF stays unchanged while
   choosing from the open switcher.
-- Cmd+Backslash: toggle two PDF panes sharing the same tabs.
+- Cmd+Backslash: toggle side-by-side PDF panes sharing the same tabs.
+- Cmd+Shift+Backslash: toggle top-and-bottom panes. Switching between the two
+  layouts preserves both PDFs and their reading positions. Repeating the current
+  layout's shortcut collapses it; there are always at most two panes.
+- Ctrl+K / Ctrl+J: focus the top / bottom pane.
 - Cmd+L: link navigation in both panes (opens a split if needed). Both indicators
   light up. Movement, page jumps, zoom, fitting and rotation apply to both,
   including navigation macros. Tab selection, annotations and mouse-wheel
@@ -221,7 +225,7 @@ Custom script paths use `$CONFIG_DIR`, falling back to `$HOME/.config`.
   restore one in the current window. Other windows stay as they are.
 
 Workspaces save tab order, the selected PDF in each pane, each tab's zoom and
-position, split width, and keyboard focus. They can include the hidden scratch
+position, split orientation and proportions, and keyboard focus. They can include the hidden scratch
 canvas, which remains shared across every workspace. Saved layouts are snapshots:
 save again when you want to update one.
 
