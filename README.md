@@ -78,11 +78,14 @@ larger values fade slower. Changes apply to the next released stroke.
 - Ctrl+Shift+O: browse and search the current PDF's folder in the same style.
 - Cmd+Shift+O: search all PDFs recursively in the configured library folder,
   including files never opened before.
-- Space F F: search library filenames and titles. Space F W: search text across
+- Space F F: search library filenames and titles. Space F W (or Space F A): search text across
   every page of library PDFs. Press each key in sequence. Apostrophe replaces
   Space for “go to mark.”
-- Each document picker has a PDF preview on the right. Ctrl+U / Ctrl+D browse
-  preview pages; content results highlight the match and Enter opens that page.
+- Each document picker has a PDF preview on the right. Ctrl+L / Ctrl+D browse
+  preview pages (Ctrl+U also goes back). Content search lists each file once,
+  highlights its matches, and lets you use [ / ] in normal mode to jump between
+  matching pages. Enter opens the previewed page. Nearby results are preloaded
+  and cached to avoid a loading flash while moving through the list.
 - Filename search matches filename, PDF metadata title, or text on the first page. Words can be
   entered in any order; capitalization and accents do not matter. Small typos are
   tolerated with `fuzzy_searching 1` in `prefs_user.config`.
@@ -118,7 +121,7 @@ Scanning leaves recents untouched; Enter opens the selected PDF.
 
 Content search matches a case-insensitive phrase with normalized whitespace.
 It extracts text in the background and caches it on disk, refreshing changed PDFs.
-Results arrive progressively, one per matching page, up to 2,000 pages per query.
+Results arrive progressively, one per PDF, up to 2,000 PDFs per query.
 Unreadable or encrypted PDFs are skipped; scanned images require an OCR text layer.
 
 Titles are indexed locally in the background and cached for the running session.
