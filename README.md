@@ -53,6 +53,10 @@ printed path explicitly if both locations contain an installation.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
 - E (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
+- Option+V: lasso ink. Draw around strokes, drag inside the selection to move, or
+  drag a corner to scale. Escape cancels an active drag or exits the lasso.
+  Moves and scaling support Cmd+Z / Cmd+Shift+Z and are saved automatically.
+  The lasso edits ink on unrotated PDFs, including the blank canvas.
 - Shift+C: toggle a glowing red laser trail. Hold the left mouse button to draw;
   release to fade from the beginning. Escape clears it.
   Laser marks are temporary and never saved.
@@ -74,7 +78,12 @@ larger values fade slower. Changes apply to the next released stroke.
 - Ctrl+Shift+O: browse and search the current PDF's folder in the same style.
 - Cmd+Shift+O: search all PDFs recursively in the configured library folder,
   including files never opened before.
-- Search by filename, PDF metadata title, or text on the first page. Words can be
+- Space F F: search library filenames and titles. Space F W: search text across
+  every page of library PDFs. Press each key in sequence. Apostrophe replaces
+  Space for “go to mark.”
+- Each document picker has a PDF preview on the right. Ctrl+U / Ctrl+D browse
+  preview pages; content results highlight the match and Enter opens that page.
+- Filename search matches filename, PDF metadata title, or text on the first page. Words can be
   entered in any order; capitalization and accents do not matter. Small typos are
   tolerated with `fuzzy_searching 1` in `prefs_user.config`.
 - Use the arrow keys and Enter to choose a result.
@@ -107,6 +116,11 @@ in the background, use a session cache, and refresh on opening and every 30
 seconds while the picker is visible. Hidden folders and symlinks are skipped.
 Scanning leaves recents untouched; Enter opens the selected PDF.
 
+Content search matches a case-insensitive phrase with normalized whitespace.
+It extracts text in the background and caches it on disk, refreshing changed PDFs.
+Results arrive progressively, one per matching page, up to 2,000 pages per query.
+Unreadable or encrypted PDFs are skipped; scanned images require an OCR text layer.
+
 Titles are indexed locally in the background and cached for the running session.
 Image-only scans need searchable text or title metadata to match by title.
 
@@ -137,6 +151,10 @@ for the supported motions and commands.
   A quick tap switches without showing the panel; the PDF stays unchanged while
   choosing from the open switcher.
 - Cmd+Backslash: toggle two PDF panes sharing the same tabs.
+- Cmd+L: link navigation in both panes (opens a split if needed). Both indicators
+  light up. Movement, page jumps, zoom, fitting and rotation apply to both,
+  including navigation macros. Tab selection, annotations and mouse-wheel
+  scrolling stay independent. Closing the split disables linking.
 - Ctrl+H / Ctrl+L: focus the left / right pane; Cmd+Option+W switches sides.
 - Drag the divider to resize the panes. The top line marks the focused pane;
   both lines follow the theme. Each pane keeps its own position and zoom.
