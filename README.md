@@ -102,13 +102,12 @@ Escape cancels search or selection, then closes the sheet; `q` also closes it.
 
 ## Finding documents
 
-- Shift+O: search recent documents in a floating panel.
-- Ctrl+Shift+O: browse and search the current PDF's folder in the same style.
-- Cmd+Shift+O: search all PDFs recursively in the configured library folder,
-  including files never opened before.
-- Space F F: search library filenames and titles. Space F W (or Space F A): search text across
-  every page of library PDFs. Press each key in sequence. Apostrophe replaces
-  Space for “go to mark.”
+- Space F F: search library PDF filenames and titles, including files never opened before.
+- Space F W: search text across every page of library PDFs.
+- Space F R: search recent documents.
+- Space F D: browse and search the current PDF's directory.
+- Press each key in sequence. These replace the old Shift+O, Cmd+Shift+O,
+  Ctrl+Shift+O, Cmd+Shift+F, and Space F A aliases. Apostrophe is “go to mark.”
 - Each document picker has a PDF preview on the right. Ctrl+L / Ctrl+D browse
   preview pages (Ctrl+U also goes back). Content search lists each file once,
   highlights its matches, and lets you use [ / ] in normal mode to jump between
