@@ -262,6 +262,16 @@ folder inside Sioyek's application-data directory (on macOS,
 strokes are in `blank.pdf.sioyek.drawings`, separate from `blank.pdf`. Rebuilds
 do not replace these files. An existing personal PDF named `blank.pdf` is untouched.
 
+## Select PDF text with Vim motions
+
+Press **`v`** to select text directly in the PDF with a visible caret and live highlighting.
+Use **`h/j/k/l`**, **`w/b/e`**, **`0/^/$`**, and **`gg/G`**; counts such as **`3w`** work too.
+**`iw/aw`** select the current word without/with whitespace, and **`o`** switches the moving endpoint.
+Press **`v`** again to move just the caret, then **`v`** to start a new selection there.
+**`y`** or **Cmd+C** copies and exits; **Escape/Enter** leaves the selection available for highlighting.
+It starts from existing selected text, text under the mouse, or the center of the focused pane.
+This works across pages and in either split pane. The command is `visual_select`.
+
 ## Jump from a PDF to LaTeX source
 
 On macOS, **Cmd+click** the PDF text to open the corresponding source location.
