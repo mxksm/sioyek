@@ -261,3 +261,19 @@ folder inside Sioyek's application-data directory (on macOS,
 `~/Library/Application Support/sioyek/canvas/`). Back up the whole folder: the
 strokes are in `blank.pdf.sioyek.drawings`, separate from `blank.pdf`. Rebuilds
 do not replace these files. An existing personal PDF named `blank.pdf` is untouched.
+
+## Jump from a PDF to LaTeX source
+
+On macOS, **Cmd+click** the PDF text to open the corresponding source location.
+Alternatively, press **`gd`** (`synctex_select_line`) to label the visible text
+lines, then type a label to jump to its source. Escape cancels the labels.
+Both work in either split pane; Cmd+click also works while drawing without
+leaving ink. The existing SyncTeX right-click mode remains available.
+
+Compile with SyncTeX enabled (`-synctex=1`) and keep the `.synctex.gz` file
+beside the PDF. VimTeX enables this in its default latexmk configuration:
+open the PDF using `:VimtexView` so it supplies the callback to the existing
+editor. For another editor, configure `inverse_search_command`, using `%1`
+for the source path, `%2` for its line and `%3` for its column. Quote `%1`
+when it is a separate command argument. A rotated PDF must be rotated back
+before inverse search.
