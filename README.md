@@ -67,7 +67,7 @@ printed path explicitly if both locations contain an installation.
 - `p` or `x`: toggle freehand drawing; the filled cursor shows the current pen color.
 - Cmd+R / Cmd+G / Cmd+B: select red / green / blue ink. Option+W changes pen width.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
-- E (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
+- C (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
 - Option+V: lasso ink. Draw around strokes, drag inside the selection to move, or
   drag a corner to scale. Escape cancels an active drag or exits the lasso.
