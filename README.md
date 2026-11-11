@@ -62,7 +62,33 @@ Quit Sioyek and reopen the installed app afterward. The build prints its path:
 is not writable. It keeps a backup of the previously installed app. Open the
 printed path explicitly if both locations contain an installation.
 
+Press `t` for the wide floating table of contents. Use `j`/`k` or `gg`/`G`
+to select sections, `i` to search, and Enter to jump. Esc returns to normal mode
+or closes the panel; left/right arrows collapse/expand chapters in normal mode.
+
 Press `p`, type a page number, then Enter to jump to that page (for example, `p12` then Enter).
+
+## Floating menus and compact status
+
+Bookmarks, highlights, marks, portals, the older document/window lists, and
+configuration-file and custom-option menus use the same wide floating picker.
+They start in normal mode: `j`/`k`, `gg`/`G`, `i` to search, and Enter to select.
+Existing delete/edit actions remain available; Cmd+Delete removes the selected
+entry even while the search field contains a query.
+
+`sb` toggles a compact, square status panel at the bottom-right of each PDF pane.
+It normally shows only the page count. Active tools add a short label; the pen
+also shows its width and ink color. Search shows the current match, and zoom
+appears for 1.5 seconds after changing it. No full-width strip is reserved.
+
+Optional settings in `prefs_local.config`:
+
+```conf
+# Include the current chapter in the compact status panel.
+status_bar_show_chapter 1
+# Restore the legacy strip and status_bar_format customization if preferred.
+# compact_status_bar 0
+```
 
 ## Annotation shortcuts
 
