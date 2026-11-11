@@ -62,9 +62,11 @@ Quit Sioyek and reopen the installed app afterward. The build prints its path:
 is not writable. It keeps a backup of the previously installed app. Open the
 printed path explicitly if both locations contain an installation.
 
+Press `p`, type a page number, then Enter to jump to that page (for example, `p12` then Enter).
+
 ## Annotation shortcuts
 
-- `p` or `x`: toggle freehand drawing; the filled cursor shows the current pen color.
+- `x`: toggle freehand drawing; the filled cursor shows the current pen color.
 - Cmd+R / Cmd+G / Cmd+B: select red / green / blue ink. Option+W changes pen width.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
 - C (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
