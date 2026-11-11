@@ -92,13 +92,14 @@ laser_pointer_duration_ms 1450
 Values are milliseconds, from 100 to 60000. Smaller values fade faster;
 larger values fade slower. Changes apply to the next released stroke.
 
-## Command cheatsheet
+## Shortcuts and commands
 
-Press `?` for a floating cheatsheet of the loaded shortcuts and commands.
-Move through it with `hjkl`, word motions, `gg`/`G`, or Ctrl+D/U/F/B.
-Use `/` to search, then `n`/`N` for matches. Enter on a command runs it in the
-pane that opened the sheet. `yy` copies a line; `v` and `y` select and copy text.
-Escape cancels search or selection, then closes the sheet; `q` also closes it.
+Press `:` for a wide floating list of commands and their keyboard shortcuts.
+It starts in normal mode: `j`/`k` move through results, `gg`/`G` jump to the ends,
+and `i` enters the search field. Search filters the list as you type. Enter runs
+the selected command; `yy` copies its name. Escape returns to normal mode, then
+closes the picker. The selected command's description appears below the list.
+`?` is intentionally unbound.
 
 ## Finding documents
 
