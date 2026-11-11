@@ -163,7 +163,7 @@ In normal mode, `j` / `k` navigate results, `gg` / `G` select the first / last
 result in the current search, and `i` / `a` resume typing. Use
 `h` / `l`, `w` / `b` / `e`, and `0` / `$` to move through the query; `v` starts
 visual selection and `x` deletes it. `yy` copies the selected file or folder's full
-path to the system clipboard; visual-mode `y` copies search text (`Vy` copies the
+path (using aliases and shell quoting) to the system clipboard; visual-mode `y` copies search text (`Vy` copies the
 whole query). `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`, and
 `cw` delete or change text. Escape leaves visual mode before closing the picker.
 See the [full editing shortcuts](https://github.com/mxksm/sioyek-app#vim-style-search-editing)
@@ -287,3 +287,21 @@ editor. For another editor, configure `inverse_search_command`, using `%1`
 for the source path, `%2` for its line and `%3` for its column. Quote `%1`
 when it is a separate command argument. A rotated PDF must be rotated back
 before inverse search.
+
+### Friendly paths
+
+`path_aliases` lists preferred folder paths, separated by semicolons. For example:
+
+```
+path_aliases ~/Documents/university; ~/Books
+```
+
+When a folder is a symlink, document pickers and the recent-tab switcher show
+that friendly path instead of its resolved target (such as an iCloud directory).
+The most specific matching target wins; missing folders are ignored. Canonical
+paths remain in use internally for history, tabs and annotations.
+
+In document pickers, `yy` copies the friendly absolute path. On macOS/Linux,
+paths containing spaces or shell metacharacters are quoted automatically for
+pasting into a terminal. Workspace and command names are copied unchanged.
+Machine-specific aliases can go in `prefs_local.config`.
