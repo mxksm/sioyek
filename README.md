@@ -103,9 +103,9 @@ closes the picker. The selected command's description appears below the list.
 
 ## Finding documents
 
-- Space F F: search library PDF filenames and titles, including files never opened before.
+- Space F L: search library PDF filenames and titles, including files never opened before.
 - Space F W: search text across every page of library PDFs.
-- Space F R: search recent documents.
+- Space F F: search recent documents.
 - Space F D: browse and search the current PDF's directory.
 - Press each key in sequence. These replace the old Shift+O, Cmd+Shift+O,
   Ctrl+Shift+O, Cmd+Shift+F, and Space F A aliases. Apostrophe is “go to mark.”
