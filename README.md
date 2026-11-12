@@ -81,6 +81,10 @@ It normally shows only the page count. Active tools add a short label; the pen
 also shows its width and ink color. Search shows the current match, and zoom
 appears for 1.5 seconds after changing it. No full-width strip is reserved.
 
+The tabs use the same theme colors in a centered floating strip, with square
+edges and space around it. It fits the tab labels and scrolls horizontally when
+needed; `st` still shows or hides it.
+
 Errors (including missing contents or SyncTeX data) appear inside the Sioyek
 window. Dismiss them with **Enter**, **Esc**, or the Dismiss button.
 
