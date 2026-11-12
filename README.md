@@ -264,7 +264,9 @@ result in the current search, and `i` / `a` resume typing. Use
 `h` / `l`, `w` / `b` / `e`, and `0` / `$` to move through the query; `v` starts
 visual selection and `x` deletes it. `~` swaps uppercase/lowercase in the
 selection and returns to normal mode. In normal mode, `~` toggles the character
-under the cursor (`3~` toggles three characters). This works in all Vim-enabled
+under the cursor (`3~` toggles three characters). `s` replaces the selection or
+current character and enters insert mode (`3s` replaces three characters).
+These work in all Vim-enabled
 text fields, including prompts and annotations. `yy` copies the selected file or folder's full
 path (using aliases and shell quoting) to the system clipboard; visual-mode `y` copies search text (`Vy` copies the
 whole query). `p` pastes, and `u` / Ctrl+R undo / redo search edits. `dd`, `dw`, and
