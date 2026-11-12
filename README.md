@@ -59,16 +59,35 @@ theme_slot_6 rose_pine
 theme_slot_7 paper_sepia
 ```
 
-These assign Option+1, Option+6, and Option+7. Use the identifier shown beneath
-the theme name in the picker (the palette filename without `.config`). Any slot
+These assign Option+1, Option+6, and Option+7. Use the palette filename without `.config` as the identifier. Friendly display
+names are independent of these stable identifiers. Any slot
 0–9 can be reassigned. The key bindings themselves remain in `keys_user.config`.
 You can also run `set_theme(nord)` in a macro.
+
+The original favorites now have these display names:
+
+| Shortcut | Display name | Palette identifier |
+| --- | --- | --- |
+| Option+1 | Flexoki Dark | `flexoki` |
+| Option+2 | Monokai Midnight | `monokai` |
+| Option+3 | Slate | `ash_gray` |
+| Option+4 | Tokyo Dracula | `wezterm` |
+| Option+5 | Cocoa | `gray_5` |
+| Option+8 | Gruvbox Light | `gruvbox_light` |
+| Option+9 | Catppuccin Latte | `catppuccin_latte` |
+| Option+0 | Paper White | `white_background` |
+
+Other renamed palettes are Sandstone (`gray_6`), Parchment (`warm_7`),
+Catppuccin Graphite (`new`), and Violet Charcoal (`terminal_theme`).
+Saved selections and local favorite assignments keep working with their existing identifiers.
 
 To make a personal palette, copy an existing file to `themes/local-my-theme.config`
 and edit its colors. Files named `local-*.config` are ignored by Git and appear
 in the picker automatically the next time it opens. Keep the palette's complete
 set of color settings so switching from another theme gives consistent results.
-Editing the active palette reloads it immediately. The shell helper
+Set `# name: My Theme` and `# description: Dark · muted colors` at the top of a
+palette to choose its picker label and description. Themes are sorted by their
+display names. Editing the active palette reloads it immediately. The shell helper
 `commands/theme_switch.sh <name>` updates the same local state for scripts.
 
 ## Installation
