@@ -81,6 +81,15 @@ It normally shows only the page count. Active tools add a short label; the pen
 also shows its width and ink color. Search shows the current match, and zoom
 appears for 1.5 seconds after changing it. No full-width strip is reserved.
 
+Errors (including missing contents or SyncTeX data) appear inside the Sioyek
+window. Dismiss them with **Enter**, **Esc**, or the Dismiss button.
+
+Pending key sequences show **Awaiting key** and a compact list of continuations.
+For example, **Space** lists the file shortcuts; **Space f** narrows them to
+**f**, **l**, **w**, and **d**. Complete the shortcut or press **Esc** to cancel.
+To hide the continuation panel, set `show_command_hints 0` in `prefs_local.config`;
+the pending-key status remains available.
+
 Optional settings in `prefs_local.config`:
 
 ```conf
