@@ -208,7 +208,10 @@ for the supported motions and commands.
 
 PDF text search (`/`) opens in insert mode so you can type immediately. Escape
 returns to normal mode for Vim editing; Enter submits from either mode. Document
-pickers and other text prompts keep their normal-mode default.
+and command pickers keep their normal-mode default. All text-only prompts
+(including text annotations, rename, and workspace names) start in insert mode.
+To reopen a text annotation from the keyboard, press `sa`, then type its label.
+The editor opens with the existing text ready to edit; Enter saves it.
 
 Regular PDF search highlights all visible matches (`should_highlight_unselected_search 1`
 in `prefs_user.config`), with a separate color for the active match. Library content
