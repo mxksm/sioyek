@@ -143,6 +143,10 @@ needed; `st` still shows or hides it.
 Errors (including missing contents or SyncTeX data) appear inside the Sioyek
 window. Dismiss them with **Enter**, **Esc**, or the Dismiss button.
 
+Workspace-save confirmations, ink copy/cut/paste feedback, and text-selection
+notices disappear after three seconds. Active input prompts remain until completed
+or cancelled.
+
 Pending key sequences show **Awaiting key** and a compact list of continuations.
 For example, **Space** lists the file shortcuts; **Space f** narrows them to
 **f**, **l**, **w**, and **d**. Complete the shortcut or press **Esc** to cancel.
@@ -287,7 +291,7 @@ large images from fullscreen/zooming to be released after a short grace period.
 
 - Cmd+T: open the persistent blank canvas; Cmd+W: close the current tab (the last tab returns to the canvas).
 - Cmd+Shift+T: reopen the last closed tab with its reading position. Repeat to restore earlier closed tabs.
-- Cmd+1–9: select a tab in the focused pane.
+- Cmd+1–8: select a numbered tab in the focused pane. Cmd+9 selects the last tab.
 - Shift+E / Shift+R: select the tab to the left / right, wrapping at either end.
 - Option+R / Option+Shift+R: rotate clockwise / counterclockwise.
 - Shift+, (`<`) / Shift+. (`>`): move the focused PDF's tab one place left / right.
