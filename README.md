@@ -44,6 +44,11 @@ before opening Sioyek with this configuration.
 
 > Keep this configuration at `$CONFIG_DIR/sioyek`, or `~/.config/sioyek` when `$CONFIG_DIR` is unset.
 
+In **Space T H**, move with `j`/`k` or the arrow keys to preview themes across
+the app. **Enter** saves the selected theme; **Esc** closes the picker and restores
+the original theme. When editing the search, the first Esc returns to normal mode.
+Previews do not change the saved selection.
+
 Themes live in `themes/<name>.config`, with one palette per file. `source_theme
 catppuccin_latte` in `prefs_user.config` supplies the fresh-install default. The
 chosen theme is saved separately in **`theme_state`**, which Git ignores.
