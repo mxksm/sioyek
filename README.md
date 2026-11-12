@@ -79,8 +79,6 @@ The original favorites now have these display names:
 
 Other renamed palettes are Sandstone (`sandstone`), Parchment (`parchment`),
 Catppuccin Graphite (`catppuccin_graphite`), and Violet Charcoal (`violet_charcoal`).
-Old names such as `gray_5`, `gray_6`, and `warm_7` remain accepted as aliases,
-so existing saved selections and local favorite assignments keep working.
 
 To make a personal palette, copy an existing file to `themes/local-my-theme.config`
 and edit its colors. Files named `local-*.config` are ignored by Git and appear
