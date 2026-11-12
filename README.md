@@ -12,7 +12,7 @@ features and instructions for building directly from source.
 - [keys_user.config](keys_user.config): keyboard shortcuts.
 - [prefs_user.config](prefs_user.config): colors, startup commands, pen settings,
   laser duration, and search preferences.
-- [commands/](commands/): theme switching and file-navigation scripts.
+- [commands/](commands/): file-navigation scripts and a theme-switch compatibility helper.
 - [sioyek-app-revision](sioyek-app-revision): the app commit used by the build launcher.
 
 Keep machine-specific settings in **`prefs_local.config`**, beside
@@ -33,11 +33,43 @@ before opening Sioyek with this configuration.
 
 ## Themes and file navigation
 
-- **Theme Switching** — Switch themes with Option+1–5, Option+8–9, or Option+0.
+- **Theme picker** — `Space th` opens a floating, searchable list of 26 palettes.
+  Start in normal mode: `j`/`k`, `gg`/`G` navigate; `i` or `/` starts searching;
+  Enter applies a theme. Escape returns to normal mode, then closes the picker.
+- **Favorite themes** — Option+1–5, Option+8–9, and Option+0 keep their original
+  themes. The picker shows assigned shortcuts and the current theme.
+  Slots 6 and 7 are available for personal favorites.
 - **File Navigation** — Open the previous PDF with Shift+D or the next with Shift+L, sorted alphanumerically within the current directory.
 - **Directory Switching** — Open the current PDF's directory with Shift+U.
 
 > Keep this configuration at `$CONFIG_DIR/sioyek`, or `~/.config/sioyek` when `$CONFIG_DIR` is unset.
+
+Themes live in `themes/<name>.config`, with one palette per file. `source_theme
+catppuccin_latte` in `prefs_user.config` supplies the fresh-install default. The
+chosen theme is saved separately in **`theme_state`**, which Git ignores.
+Switching themes never rewrites `prefs_user.config`; pulling updates therefore
+preserves the local selection. `prefs_local.config` loads after the palette,
+so personal color overrides and favorite assignments take precedence.
+
+For example, in `prefs_local.config`:
+
+```conf
+theme_slot_1 nord
+theme_slot_6 rose_pine
+theme_slot_7 paper_sepia
+```
+
+These assign Option+1, Option+6, and Option+7. Use the identifier shown beneath
+the theme name in the picker (the palette filename without `.config`). Any slot
+0–9 can be reassigned. The key bindings themselves remain in `keys_user.config`.
+You can also run `set_theme(nord)` in a macro.
+
+To make a personal palette, copy an existing file to `themes/local-my-theme.config`
+and edit its colors. Files named `local-*.config` are ignored by Git and appear
+in the picker automatically the next time it opens. Keep the palette's complete
+set of color settings so switching from another theme gives consistent results.
+Editing the active palette reloads it immediately. The shell helper
+`commands/theme_switch.sh <name>` updates the same local state for scripts.
 
 ## Installation
 

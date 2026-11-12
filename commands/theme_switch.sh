@@ -1,34 +1,13 @@
 #!/bin/bash
-
-# Locate themes beside this script, including when launched from Finder.
+# Compatibility entry point; the native picker uses the same local state.
+set -eu
 SIOYEK_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-THEMES_DIR="$SIOYEK_DIR/themes"
-PREFS_FILE="$SIOYEK_DIR/prefs_user.config"
-
-# Get the input argument for the theme name
-THEME_NAME=$1
-
-if [ -z "$THEME_NAME" ]; then
-    echo "Please provide a theme name (e.g., ./switch_theme.sh gruvbox_light)"
-    exit 1
+name="${1:-}"
+case "$name" in ""|*[!a-zA-Z0-9_-]*) echo "Provide a theme name from themes/." >&2; exit 1;; esac
+if [ ! -f "$SIOYEK_DIR/themes/$name.config" ]; then
+    echo "Theme not found: $name" >&2; exit 1
 fi
-
-# Construct the theme file path
-SELECTED_THEME_FILE="$THEMES_DIR/$THEME_NAME.config"
-
-# Check if the theme file exists
-if [ ! -f "$SELECTED_THEME_FILE" ]; then
-    echo "Theme '$THEME_NAME' not found! Please provide a valid theme name."
-    exit 1
-fi
-
-# Extract the content of the selected theme file
-THEME_CONTENT=$(<"$SELECTED_THEME_FILE")
-
-# Use perl to replace the content between the placeholders
-perl -0777 -i -pe "
-s/# theme placeholder start.*# theme placeholder end/# theme placeholder start\n# (This section will be replaced with the selected theme)\n$THEME_CONTENT\n# theme placeholder end/s
-" "$PREFS_FILE"
-
-echo "Switched to theme: $(basename "$SELECTED_THEME_FILE")"
-
+state=$(mktemp "$SIOYEK_DIR/.theme_state.XXXXXX")
+trap 'rm -f "$state"' EXIT
+printf '%s\n' "$name" > "$state"
+mv -f "$state" "$SIOYEK_DIR/theme_state"
