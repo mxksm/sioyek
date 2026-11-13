@@ -322,8 +322,10 @@ large images from fullscreen/zooming to be released after a short grace period.
   including navigation macros. Tab selection, annotations and mouse-wheel
   scrolling stay independent. Closing the split disables linking.
 - Ctrl+H / Ctrl+L: focus the left / right pane; Cmd+Option+W switches sides.
-- Drag the divider to resize the panes. The top line marks the focused pane;
-  both lines follow the theme. Each pane keeps its own position and zoom.
+- Cmd+Ctrl+H or Cmd+Ctrl+L: swap the panes, including their reading positions and
+  zoom levels. Focus follows the same PDF. Works with either split orientation.
+- Drag the divider to resize the panes. The active page badge marks the focused
+  pane (or an ACTIVE badge when the status bar is hidden).
 - Ctrl+T: open a separate window; Ctrl+W: close the entire window.
 - `st` / `sb`: show or hide the tab bar / status bar.
 
