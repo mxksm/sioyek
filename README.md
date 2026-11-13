@@ -279,7 +279,14 @@ returns to normal mode for Vim editing; Enter submits from either mode. Document
 and command pickers keep their normal-mode default. All text-only prompts
 (including text annotations, rename, and workspace names) start in insert mode.
 To reopen a text annotation from the keyboard, press `sa`, then type its label.
-The editor opens with the existing text ready to edit; Enter saves it.
+The editor opens with the existing text ready to edit in a taller multiline box.
+Enter adds a newline; `o` opens a line below in normal or visual mode. Cmd+Enter
+saves. Drag the heading to move the editor. Closing a changed note offers Save,
+Discard, or Keep editing; Escape dismisses that confirmation safely.
+
+The active split pane's page badge uses the theme's selection color. If the
+status badge is hidden, a small ACTIVE badge still identifies the focused pane.
+PDF recompiles preserve drawings and their undo history at their page positions.
 
 Regular PDF search highlights all visible matches (`should_highlight_unselected_search 1`
 in `prefs_user.config`), with a separate color for the active match. Library content
