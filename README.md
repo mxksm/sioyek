@@ -217,6 +217,11 @@ closes the picker. The selected command's description appears below the list.
 
 ## Finding documents
 
+To browse outside the library, use **Space fd**, press **i**, and type a folder
+path such as `~/Downloads/`. You can also paste a complete PDF path and press
+Enter. Paths can be absolute, home-relative (`~/`), or relative to the folder
+currently shown. These folders do not need to be added to the library.
+
 - Space F L: search library PDF filenames and titles, including files never opened before.
 - Space F W: search text across every page of library PDFs.
 - Space F F: search recent documents.
@@ -396,6 +401,8 @@ strokes are in `blank.pdf.sioyek.drawings`, separate from `blank.pdf`. Rebuilds
 do not replace these files. An existing personal PDF named `blank.pdf` is untouched.
 
 ## Select PDF text with Vim motions
+
+Outside text fields and PDF caret mode, **`yy`** copies the current PDF filename, including its extension (`copy_file_name`).
 
 Press **`i`** to place a normal-mode caret near the center of the focused pane
 (or at a visible selection endpoint). This uses the `text_caret` command and does not depend on the mouse position.
