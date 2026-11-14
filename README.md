@@ -308,6 +308,7 @@ large images from fullscreen/zooming to be released after a short grace period.
 - Option+R / Option+Shift+R: rotate clockwise / counterclockwise.
 - Shift+, (`<`) / Shift+. (`>`): move the focused PDF's tab one place left / right.
   Tabs stop at either end without wrapping; both split panes keep their views.
+- `a`: switch immediately to the most recently used tab in the current window.
 - Ctrl+Tab: cycle through tabs in most-recently-used order. Keep Ctrl held to
   display the switcher; release Ctrl to open the selection. Shift reverses direction.
   A quick tap switches without showing the panel; the PDF stays unchanged while
