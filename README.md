@@ -178,7 +178,7 @@ status_bar_show_chapter 1
 
 ## Annotation shortcuts
 
-- `x`: toggle freehand drawing; the filled cursor shows the current pen color.
+- Use `toggle_freehand_drawing_mode` in `:` to toggle the pen; the filled cursor shows its color.
 - Cmd+R / Cmd+G / Cmd+B: select red / green / blue ink. Option+W changes pen width.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
 - C (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
@@ -186,7 +186,7 @@ status_bar_show_chapter 1
 - Option+V: lasso ink. Draw around strokes, drag inside the selection to move, or
   drag a corner to scale. Escape cancels an active drag or exits the lasso.
   In lasso mode, `y` copies, `d` cuts, and `p` pastes at the center of the pane;
-  the pasted group stays selected for moving/scaling. `x` returns to the pen.
+  the pasted group stays selected for moving/scaling. Use `toggle_freehand_drawing_mode` to return to the pen.
   Named registers work with `"ay`, `"ad`, and `"ap` (letters a–z), shared across
   PDFs and windows until the app quits. The ink clipboard uses at most 32 MiB.
   Moves, scaling, cuts and pastes support Cmd+Z / Cmd+Shift+Z and save automatically.
@@ -315,7 +315,7 @@ large images from fullscreen/zooming to be released after a short grace period.
 
 ## Tabs and split view
 
-- Cmd+T: open the persistent blank canvas; Cmd+W: close the current tab (the last tab returns to the canvas).
+- Cmd+T: open the persistent blank canvas; Cmd+W or `x`: close the current tab (the last tab returns to the canvas).
 - Cmd+Shift+T: reopen the last closed tab with its reading position. Repeat to restore earlier closed tabs.
 - Cmd+1–8: select a numbered tab in the focused pane. Cmd+9 selects the last tab.
 - Shift+E / Shift+R: select the tab to the left / right, wrapping at either end.
