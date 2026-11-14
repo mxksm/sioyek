@@ -178,20 +178,20 @@ status_bar_show_chapter 1
 
 ## Annotation shortcuts
 
-- Use `toggle_freehand_drawing_mode` in `:` to toggle the pen; the filled cursor shows its color.
+- `c`: toggle the pen; the filled cursor shows its color.
 - Cmd+R / Cmd+G / Cmd+B: select red / green / blue ink. Option+W changes pen width.
 - Hold the right mouse button while drawing to erase; release to return to the pen.
-- C (unshifted): toggle circular eraser (removes only touched portions of strokes); Escape exits.
+- Shift+C: toggle circular eraser (removes only touched portions of strokes); Escape exits.
 - Shift+P: rectangle eraser.
 - Option+V: lasso ink. Draw around strokes, drag inside the selection to move, or
   drag a corner to scale. Escape cancels an active drag or exits the lasso.
   In lasso mode, `y` copies, `d` cuts, and `p` pastes at the center of the pane;
-  the pasted group stays selected for moving/scaling. Use `toggle_freehand_drawing_mode` to return to the pen.
+  the pasted group stays selected for moving/scaling. Press `c` to return to the pen.
   Named registers work with `"ay`, `"ad`, and `"ap` (letters a–z), shared across
   PDFs and windows until the app quits. The ink clipboard uses at most 32 MiB.
   Moves, scaling, cuts and pastes support Cmd+Z / Cmd+Shift+Z and save automatically.
   The lasso edits ink on unrotated PDFs, including the blank canvas.
-- Shift+C: toggle a glowing red laser trail. Hold the left mouse button to draw;
+- Shift+V: toggle a glowing red laser trail. Hold the left mouse button to draw;
   release to fade from the beginning. Escape clears it.
   Laser marks are temporary and never saved.
 - Cmd+Z / Ctrl+Z: undo drawing; Cmd+Shift+Z: redo drawing. Erasing is not undoable.
