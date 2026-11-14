@@ -136,6 +136,9 @@ It normally shows only the page count. Active tools add a short label; the pen
 also shows its width and ink color. Search shows the current match, and zoom
 appears for 1.5 seconds after changing it. No full-width strip is reserved.
 
+After escaping a PDF search, `n` or `Shift+n` restores the last query and jumps
+to the next or previous match from the current reading position.
+
 The tabs use the same theme colors in a centered floating strip, with square
 edges and space around it. It fits the tab labels and scrolls horizontally when
 needed; `st` cycles its visibility mode.
