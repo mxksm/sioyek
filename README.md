@@ -131,14 +131,14 @@ They start in normal mode: `j`/`k`, `gg`/`G`, `i` to search, and Enter to select
 Existing delete/edit actions remain available; Cmd+Delete removes the selected
 entry even while the search field contains a query.
 
-`sb` toggles a compact, square status panel at the bottom-right of each PDF pane.
+`sb` controls the compact **status badge** at the bottom-right of each PDF pane.
 It normally shows only the page count. Active tools add a short label; the pen
 also shows its width and ink color. Search shows the current match, and zoom
 appears for 1.5 seconds after changing it. No full-width strip is reserved.
 
 The tabs use the same theme colors in a centered floating strip, with square
 edges and space around it. It fits the tab labels and scrolls horizontally when
-needed; `st` still shows or hides it.
+needed; `st` cycles its visibility mode.
 
 Errors (including missing contents or SyncTeX data) appear inside the Sioyek
 window. Dismiss them with **Enter**, **Esc**, or the Dismiss button.
@@ -153,9 +153,23 @@ For example, **Space** lists the file shortcuts; **Space f** narrows them to
 To hide the continuation panel, set `show_command_hints 0` in `prefs_local.config`;
 the pending-key status remains available.
 
+`sb` (status badge) and `st` (tab bar) cycle **visible → hidden → automatic → visible**.
+The supplied configuration starts in automatic mode. Page changes reveal the badge;
+tab, workspace, and split-focus changes reveal both overlays. Zoom, tool changes,
+and confirmations also reveal the badge. Search counts, pending keys, rectangle/point
+selection, linking, and network activity keep it visible until finished or cancelled.
+The overlays fade without moving or recoloring the PDF. Hovering the visible tabs
+keeps them available for clicking. An explicit hidden mode stays hidden.
+
 Optional settings in `prefs_local.config`:
 
 ```conf
+# 0 = hidden, 1 = always visible, 2 = automatic
+status_badge_visibility 2
+tab_bar_visibility 2
+# Milliseconds; set fade duration to 0 for instant transitions.
+navigation_ui_duration 900
+navigation_ui_fade_duration 140
 # Include the current chapter in the compact status panel.
 status_bar_show_chapter 1
 # Restore the legacy strip and status_bar_format customization if preferred.
@@ -328,7 +342,7 @@ large images from fullscreen/zooming to be released after a short grace period.
 - Drag the divider to resize the panes. The active page badge marks the focused
   pane (or an ACTIVE badge when the status bar is hidden).
 - Ctrl+T: open a separate window; Ctrl+W: close the entire window.
-- `st` / `sb`: show or hide the tab bar / status bar.
+- `st` / `sb`: cycle tab bar / status badge visibility.
 
 Collapsing a split keeps the focused PDF. Tabs are restored at startup, but the
 split layout starts with one pane.
