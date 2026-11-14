@@ -316,7 +316,7 @@ large images from fullscreen/zooming to be released after a short grace period.
 
 ## Tabs and split view
 
-- Cmd+T: open the persistent blank canvas; Cmd+W or `x`: close the current tab (the last tab returns to the canvas).
+- Cmd+T: open the persistent blank canvas; Cmd+W or `Space x`: close the current tab (the last tab returns to the canvas).
 - Cmd+Shift+T or `u`: reopen the last closed tab with its reading position. Repeat to restore earlier closed tabs.
 - Cmd+1–8: select a numbered tab in the focused pane. Cmd+9 selects the last tab.
 - Shift+E / Shift+R: select the tab to the left / right, wrapping at either end.
