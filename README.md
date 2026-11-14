@@ -397,11 +397,16 @@ do not replace these files. An existing personal PDF named `blank.pdf` is untouc
 
 ## Select PDF text with Vim motions
 
-Press **`v`** to select text directly in the PDF with a visible caret and live highlighting.
+Press **`i`** to place a normal-mode caret near the center of the focused pane
+(or at a visible selection endpoint). This uses the `text_caret` command and does not depend on the mouse position.
+
+Click text to place a normal-mode caret; without a caret, PDF navigation works as usual.
+Press **`v`** to begin selecting, or press it without clicking to start near the mouse or viewport center.
 Use **`h/j/k/l`**, **`w/b/e`**, **`0/^/$`**, and **`gg/G`**; counts such as **`3w`** work too.
 **`iw/aw`** select the current word without/with whitespace, and **`o`** switches the moving endpoint.
 Press **`v`** again to move just the caret, then **`v`** to start a new selection there.
-**`y`** or **Cmd+C** copies and exits; **Escape/Enter** leaves the selection available for highlighting.
+**`y`** or **Cmd+C** copies a selection and returns to the normal caret. **`yy`** copies the current line; **`3yy`** copies three lines.
+**Escape** clears visual selection first, then removes the caret to restore PDF navigation. **Enter** exits with the selection available for highlighting.
 It starts from existing selected text, text under the mouse, or the center of the focused pane.
 This works across pages and in either split pane. The command is `visual_select`.
 
