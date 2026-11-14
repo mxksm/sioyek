@@ -295,7 +295,7 @@ and command pickers keep their normal-mode default. All text-only prompts
 To reopen a text annotation from the keyboard, press `sa`, then type its label.
 The editor opens with the existing text ready to edit in a taller multiline box.
 Enter adds a newline; `o` opens a line below in normal or visual mode. Cmd+Enter
-saves. Drag the heading to move the editor. Escape only returns to normal mode;
+saves. Drag anywhere on the panel outside its text fields to move the editor. Escape only returns to normal mode;
 it never closes a note. Use `:wq` to save and close or `:q` to discard and close.
 Discarding restores an existing note’s previous text or removes an unfinished new note.
 
