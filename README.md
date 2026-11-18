@@ -469,3 +469,8 @@ Use `:` → `move_to_trash` to move the current PDF to the system Trash. An
 in-app confirmation defaults to Cancel. On success, the PDF closes in all
 windows and is removed from recents. Restore the file from Trash to recover it;
 its Sioyek annotation files are kept in place. The shared blank canvas is protected.
+
+The floating tab bar can be positioned with `: select_tab_bar_position`.
+Choose top or bottom, aligned left, center, or right. The default is `top_center`.
+The choice is saved as `tab_bar_position` in `prefs_local.config` and restored
+on startup. Tab visibility (`st`) remains independent of its position.
