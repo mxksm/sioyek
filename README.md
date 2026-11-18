@@ -51,7 +51,9 @@ Previews do not change the saved selection.
 
 Themes live in `themes/<name>.config`, with one palette per file. `source_theme
 catppuccin_latte` in `prefs_user.config` supplies the fresh-install default. The
-chosen theme is saved separately in **`theme_state`**, which Git ignores.
+chosen theme is saved as `theme <name>` in **`prefs_local.config`**, which Git ignores.
+Existing `theme_state` selections migrate automatically on startup, then the old
+file is removed. An explicit `theme` setting in local preferences takes priority.
 Switching themes never rewrites `prefs_user.config`; pulling updates therefore
 preserves the local selection. `prefs_local.config` loads after the palette,
 so personal color overrides and favorite assignments take precedence.
@@ -59,6 +61,7 @@ so personal color overrides and favorite assignments take precedence.
 For example, in `prefs_local.config`:
 
 ```conf
+theme nord
 theme_slot_1 nord
 theme_slot_6 rose_pine
 theme_slot_7 paper_sepia
@@ -131,7 +134,10 @@ They start in normal mode: `j`/`k`, `gg`/`G`, `i` to search, and Enter to select
 Existing delete/edit actions remain available; Cmd+Delete removes the selected
 entry even while the search field contains a query.
 
-`sb` controls the compact **status badge** at the bottom-right of each PDF pane.
+`sb` controls the compact **status badge** in each PDF pane (bottom-right by default).
+In `:`, choose **Choose status badge corner** (`select_status_badge_position`),
+then pick a corner and press Enter. The choice is saved in `prefs_local.config`
+and survives restarts; Escape cancels without changing it.
 It normally shows only the page count. Active tools add a short label; the pen
 also shows its width and ink color. Search shows the current match, and zoom
 appears for 1.5 seconds after changing it. No full-width strip is reserved.
@@ -169,6 +175,8 @@ Optional settings in `prefs_local.config`:
 ```conf
 # 0 = hidden, 1 = always visible, 2 = automatic
 status_badge_visibility 2
+# Corner: bottom_right, bottom_left, top_right, or top_left.
+status_badge_position bottom_right
 tab_bar_visibility 2
 # Milliseconds; set fade duration to 0 for instant transitions.
 navigation_ui_duration 900
