@@ -191,9 +191,25 @@ def compile_pdf(args):
         options += ['--input', value]
     compiler_hash = digest(tool)
     before = source_hashes(source.parent)
-    subprocess.run([tool, 'compile', str(source), str(pdf), *options], check=True)
-    if before != source_hashes(source.parent):
-        raise RuntimeError('Typst sources changed while compiling; save again to refresh inverse search.')
+    # Tinymist treats output names as templates ($name, $root, ...). Compile to
+    # a neutral name, then publish to the literal requested path atomically.
+    with tempfile.TemporaryDirectory(prefix='sioyek-typst-') as temporary:
+        output = Path(temporary) / 'output.pdf'
+        subprocess.run([tool, 'compile', str(source), str(output), *options], check=True)
+        if before != source_hashes(source.parent):
+            raise RuntimeError('Typst sources changed while compiling; save again to refresh inverse search.')
+        staged = None
+        try:
+            with tempfile.NamedTemporaryFile(dir=pdf.parent, prefix='.sioyek-', suffix='.pdf', delete=False) as stream:
+                staged = Path(stream.name)
+                with output.open('rb') as rendered:
+                    shutil.copyfileobj(rendered, stream)
+            if pdf.exists():
+                shutil.copymode(pdf, staged)
+            os.replace(staged, pdf)
+        finally:
+            if staged:
+                staged.unlink(missing_ok=True)
     CACHE.mkdir(parents=True, exist_ok=True)
     meta = dict(source=str(source), pdf=str(pdf), pdf_hash=digest(pdf), sources=before,
                 cwd=str(source.parent), args=options, tinymist=tool, compiler_hash=compiler_hash,
