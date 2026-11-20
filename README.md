@@ -317,6 +317,32 @@ Discarding restores an existing note’s previous text or removes an unfinished 
 
 The active split pane's page badge uses the theme's selection color. If the
 status badge is hidden, a small ACTIVE badge still identifies the focused pane.
+### Navigation history
+
+Ctrl+O goes back through reading locations; Ctrl+I goes forward. Page jumps,
+search-result jumps, links, marks and opening another PDF create history stops.
+Ordinary scrolling updates the current location without adding stops. A new jump
+after going back replaces the forward branch. Unavailable PDFs are skipped.
+
+A narrow numbered sidebar appears at the left edge after the first jump. The
+selected number marks the current stop; click another number to jump there, or
+hover to see its file, page and text excerpt. Scroll over the sidebar to reach
+older stops. It overlays the edge without changing PDF size or zoom.
+
+- **Space H H** (`toggle_navigation_sidebar`): show or hide the sidebar.
+- **Space H F** (`show_navigation_history`), or its **↗** button: expand into the
+  shared floating Vim search with PDF previews. Browsing previews leaves the
+  reading view unchanged; Enter jumps and Escape dismisses it.
+
+Each split pane has its own trail, limited to 200 stops. Named workspaces save
+both trails, the selected stops, and each sidebar's visibility. Text excerpts are
+collected after movement settles; page images are loaded only when expanding.
+
+PDF recompiles also follow the text passage you were reading, retaining its vertical
+screen position, zoom and horizontal pan. Each split pane tracks its own passage.
+If the text is removed or unavailable (for example in scans), the existing page and
+position are retained instead. Navigation cancels a pending passage lookup.
+
 PDF recompiles preserve drawings and their undo history at their page positions.
 
 Regular PDF search highlights all visible matches (`should_highlight_unselected_search 1`
