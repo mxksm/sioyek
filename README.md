@@ -227,6 +227,13 @@ the selected command; `yy` copies its name. Escape returns to normal mode, then
 closes the picker. The selected command's description appears below the list.
 `?` is intentionally unbound.
 
+Inside `:`, **Tab** switches to shortcut search. Press actual keys: **Space**
+shows bindings containing Space, and adding `f` narrows them to matching file
+shortcuts. Partial sequences and modifier combinations work too. Use **↑/↓**
+to select, **Enter** to run, and **Backspace** to remove the last recorded key.
+**Tab** or **Esc** returns to name search; both search queries are remembered
+while the picker stays open.
+
 ## Finding documents
 
 To browse outside the library, use **Space fd**, press **i**, and type a folder
