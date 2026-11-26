@@ -39,7 +39,7 @@ before opening Sioyek with this configuration.
 - **Favorite themes** — Option+1–5, Option+8–9, and Option+0 keep their original
   themes. The picker shows assigned shortcuts and the current theme.
   Slots 6 and 7 are available for personal favorites.
-- **File Navigation** — Open the previous PDF with Shift+D or the next with Shift+L, sorted alphanumerically within the current directory.
+- **File Navigation** — Open the previous PDF with Shift+D or the next with Shift+L, sorted alphanumerically within the current directory. Navigation wraps at the ends and stays in the focused split pane, even when the destination PDF is already open in the other pane.
 - **Current Folder** — Browse the current PDF's directory with Space F D.
 
 > Keep this configuration at `$CONFIG_DIR/sioyek`, or `~/.config/sioyek` when `$CONFIG_DIR` is unset.
