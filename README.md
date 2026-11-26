@@ -206,7 +206,7 @@ status_bar_show_chapter 1
 - Shift+V: toggle a glowing red laser trail. Hold the left mouse button to draw;
   release to fade from the beginning. Escape clears it.
   Laser marks are temporary and never saved.
-- Cmd+Z / Ctrl+Z: undo drawing; Cmd+Shift+Z: redo drawing. Erasing is not undoable.
+- Cmd+Z / Ctrl+Z: undo drawing or erasing; Cmd+Shift+Z: redo. Each brush eraser drag (including right-click erasing) is one step; rectangle erasing and clearing drawings are undoable too.
 - Shift+A: create a text box; `w`, then `a`: delete a visible annotation.
 
 Set the laser's lifetime after release in `prefs_user.config`:
