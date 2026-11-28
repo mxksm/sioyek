@@ -407,8 +407,10 @@ large images from fullscreen/zooming to be released after a short grace period.
 - Ctrl+T: open a separate window; Ctrl+W: close the entire window.
 - `st` / `sb`: cycle tab bar / status badge visibility.
 
-Collapsing a split keeps the focused PDF. Tabs are restored at startup, but the
-split layout starts with one pane.
+Collapsing a split keeps the focused PDF and remembers the companion's reading
+position and zoom while its tab remains open. Reopening also restores the divider
+proportion, even after resizing the window; each orientation remembers its own
+proportion. Startup restores the saved tabs and split layout.
 
 Custom script paths use `$CONFIG_DIR`, falling back to `$HOME/.config`.
 
